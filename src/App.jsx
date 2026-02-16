@@ -74,11 +74,22 @@ const Navbar = () => {
                             {link.name}
                         </Link>
                     ))}
-                    <Link to="/contact" className="btn-primary py-2 px-6 text-sm">Get Started</Link>
+                    <a
+                        href="https://wa.me/923277343906"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="btn-primary py-2 px-6 text-sm"
+                    >
+                        Get Started
+                    </a>
                 </div>
 
                 {/* Mobile Toggle */}
-                <button className="md:hidden text-primary" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+                <button
+                    className="md:hidden text-primary"
+                    onClick={() => setIsMenuOpen(!isMenuOpen)}
+                    aria-label={isMenuOpen ? "Close Menu" : "Open Menu"}
+                >
                     {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
                 </button>
             </div>
@@ -102,7 +113,15 @@ const Navbar = () => {
                                 {link.name}
                             </Link>
                         ))}
-                        <Link to="/contact" className="btn-primary w-full justify-center" onClick={() => setIsMenuOpen(false)}>Get Started</Link>
+                        <a
+                            href="https://wa.me/923277343906"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="btn-primary w-full justify-center"
+                            onClick={() => setIsMenuOpen(false)}
+                        >
+                            Get Started
+                        </a>
                     </motion.div>
                 )}
             </AnimatePresence>
@@ -137,24 +156,29 @@ const Hero = () => {
                         <Link to="/services" className="btn-primary">
                             Our Services <ChevronRight size={20} />
                         </Link>
-                        <Link to="/contact" className="btn-secondary">
+                        <a
+                            href="https://wa.me/923277343906"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="btn-secondary"
+                        >
                             Contact Us
-                        </Link>
+                        </a>
                     </div>
 
                     <div className="mt-12 flex items-center gap-8">
                         <div>
-                            <h4 className="text-2xl font-bold text-heading">50+</h4>
+                            <div className="text-2xl font-bold text-heading">50+</div>
                             <p className="text-sm text-text-muted text-nowrap">Projects Completed</p>
                         </div>
                         <div className="w-px h-10 bg-glass-border"></div>
                         <div>
-                            <h4 className="text-2xl font-bold text-heading">20+</h4>
+                            <div className="text-2xl font-bold text-heading">20+</div>
                             <p className="text-sm text-text-muted text-nowrap">Expert Engineers</p>
                         </div>
                         <div className="w-px h-10 bg-glass-border"></div>
                         <div>
-                            <h4 className="text-2xl font-bold text-heading">99%</h4>
+                            <div className="text-2xl font-bold text-heading">99%</div>
                             <p className="text-sm text-text-muted text-nowrap">Client Satisfaction</p>
                         </div>
                     </div>
@@ -170,7 +194,14 @@ const Hero = () => {
                     <div className="relative z-10 glass-card p-4 rounded-3xl border-primary/20 border">
                         <div className="rounded-2xl overflow-hidden shadow-2xl">
                             <div className="h-96 w-full bg-gradient-to-br from-indigo-950 to-slate-950 relative group overflow-hidden">
-                                <img src="https://images.unsplash.com/photo-1639322537231-2f206e06af84?auto=format&fit=crop&q=80&w=1200" alt="Futuristic AI Neural Network" className="w-full h-full object-cover opacity-90 group-hover:scale-110 transition-transform duration-[2000ms] ease-out" />
+                                <img
+                                    src="https://images.unsplash.com/photo-1639322537231-2f206e06af84?auto=format&fit=crop&q=80&w=1200"
+                                    alt="Futuristic AI Neural Network"
+                                    className="w-full h-full object-cover opacity-90 group-hover:scale-110 transition-transform duration-[2000ms] ease-out"
+                                    loading="eager"
+                                    fetchpriority="high"
+                                    decoding="async"
+                                />
 
                                 {/* Scanner Effect */}
                                 <motion.div
@@ -413,7 +444,7 @@ const Footer = () => {
                     </div>
 
                     <div>
-                        <h4 className="text-lg font-bold mb-6">Explore</h4>
+                        <h2 className="text-lg font-bold mb-6">Explore</h2>
                         <ul className="space-y-4">
                             <li><Link to="/" className="text-text-muted hover:text-primary transition-colors">Home</Link></li>
                             <li><Link to="/services" className="text-text-muted hover:text-primary transition-colors">Services</Link></li>
@@ -423,16 +454,18 @@ const Footer = () => {
                     </div>
 
                     <div>
-                        <h4 className="text-lg font-bold mb-6">Connect</h4>
+                        <h2 className="text-lg font-bold mb-6">Connect</h2>
                         <ul className="space-y-4">
-                            <li className="flex items-center gap-2 text-text-muted"><Phone size={16} /> +92 327 7343906</li>
-                            <li className="flex items-center gap-2 text-text-muted"><Mail size={16} /> baridex.solutions@gmail.com</li>
-                            <li className="flex items-center gap-2 text-text-muted uppercase text-xs tracking-widest font-bold text-primary mt-4">Follow Us</li>
-                            <div className="flex gap-4 mt-2">
-                                <a href="https://www.facebook.com/profile.php?id=61578939004584" target="_blank" rel="noopener noreferrer" className="text-text-muted hover:text-white hover:text-primary transition-colors"><Facebook size={20} /></a>
-                                <a href="https://www.instagram.com/baridexsolutions?igsh=MWZ0aWRxN3hkaGRqcg==" target="_blank" rel="noopener noreferrer" className="text-text-muted hover:text-white hover:text-primary transition-colors"><Instagram size={20} /></a>
-                                <a href="https://www.linkedin.com/company/baridex-solutions/" target="_blank" rel="noopener noreferrer" className="text-text-muted hover:text-white hover:text-primary transition-colors"><Linkedin size={20} /></a>
-                            </div>
+                            <li className="flex items-center gap-2 text-text-muted"><Phone size={16} aria-hidden="true" /> +92 327 7343906</li>
+                            <li className="flex items-center gap-2 text-text-muted"><Mail size={16} aria-hidden="true" /> baridex.solutions@gmail.com</li>
+                            <li className="text-text-muted uppercase text-xs tracking-widest font-bold text-primary mt-4">Follow Us</li>
+                            <li>
+                                <div className="flex gap-4 mt-2">
+                                    <a href="https://www.facebook.com/profile.php?id=61578939004584" target="_blank" rel="noopener noreferrer" className="text-text-muted hover:text-white hover:text-primary transition-colors" aria-label="Visit our Facebook page"><Facebook size={20} /></a>
+                                    <a href="https://www.instagram.com/baridexsolutions?igsh=MWZ0aWRxN3hkaGRqcg==" target="_blank" rel="noopener noreferrer" className="text-text-muted hover:text-white hover:text-primary transition-colors" aria-label="Visit our Instagram profile"><Instagram size={20} /></a>
+                                    <a href="https://www.linkedin.com/company/baridex-solutions/" target="_blank" rel="noopener noreferrer" className="text-text-muted hover:text-white hover:text-primary transition-colors" aria-label="Visit our LinkedIn profile"><Linkedin size={20} /></a>
+                                </div>
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -560,6 +593,8 @@ const About = () => {
                                 src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=1200"
                                 alt="Team collaboration"
                                 className="rounded-2xl w-full h-[500px] object-cover"
+                                loading="lazy"
+                                decoding="async"
                             />
                             <div className="absolute inset-0 bg-gradient-to-t from-bg-dark/80 to-transparent"></div>
                         </div>
@@ -612,7 +647,7 @@ const About = () => {
                                         0{idx + 1}
                                     </div>
                                     <div>
-                                        <h4 className="text-xl font-bold mb-2">{step.title}</h4>
+                                        <h3 className="text-xl font-bold mb-2">{step.title}</h3>
                                         <p className="text-text-muted">{step.desc}</p>
                                     </div>
                                 </div>
@@ -664,6 +699,8 @@ const DetailedScience = () => {
                             src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=1000"
                             alt="Data visualization dashboard"
                             className="w-full h-full object-cover rounded-2xl shadow-2xl"
+                            loading="lazy"
+                            decoding="async"
                         />
                     </motion.div>
                 </div>
@@ -691,6 +728,8 @@ const WorkflowAutomation = () => {
                                 src="https://images.unsplash.com/photo-1518186285589-2f7649de83e0?auto=format&fit=crop&q=80&w=1200"
                                 alt="Workflow Automation System"
                                 className="w-full h-[450px] object-cover rounded-[2rem] group-hover:scale-105 transition-transform duration-700"
+                                loading="lazy"
+                                decoding="async"
                             />
 
                             {/* Decorative Tech Elements */}
@@ -730,7 +769,7 @@ const WorkflowAutomation = () => {
                                 { title: "Real-time Monitoring", desc: "Live dashboards for total visibility over your flows." }
                             ].map((item, i) => (
                                 <div key={i} className="glass-card p-5 rounded-2xl border-white/5">
-                                    <h4 className="font-bold mb-2 text-heading">{item.title}</h4>
+                                    <h3 className="font-bold mb-2 text-heading">{item.title}</h3>
                                     <p className="text-xs text-text-muted leading-relaxed">{item.desc}</p>
                                 </div>
                             ))}
