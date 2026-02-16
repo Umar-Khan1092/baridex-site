@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, CheckCircle, ChevronDown } from 'lucide-react';
 
@@ -13,11 +13,6 @@ const ServiceModal = ({ isOpen, onClose, selectedService }) => {
         description: ''
     });
 
-    useEffect(() => {
-        if (selectedService) {
-            setFormData(prev => ({ ...prev, service: selectedService }));
-        }
-    }, [selectedService]);
 
     const handleSubmit = (e) => {
         e.preventDefault();

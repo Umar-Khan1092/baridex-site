@@ -3,8 +3,6 @@ import { motion, AnimatePresence } from 'framer-motion';
 import {
     Database,
     Code2,
-    Search,
-    Share2,
     TrendingUp,
     Mail,
     Phone,
@@ -13,22 +11,23 @@ import {
     Menu,
     X,
     ChevronRight,
-    Github,
-    Twitter,
     Linkedin,
     Instagram,
     Facebook,
-    Smartphone,
-    Palette,
-    ExternalLink
 } from 'lucide-react';
 import { BrowserRouter as Router, Routes, Route, Link, useLocation } from 'react-router-dom';
-import Services from './components/Services';
-import ServiceModal from './components/ServiceModal';
-import Portfolio from './components/Portfolio';
-import Team from './components/Team';
-import Reviews from './components/Reviews';
-import Pricing from './components/Pricing';
+
+// Lazy loading components for performance
+const Services = React.lazy(() => import('./components/Services'));
+const ServiceModal = React.lazy(() => import('./components/ServiceModal'));
+const Portfolio = React.lazy(() => import('./components/Portfolio'));
+const Team = React.lazy(() => import('./components/Team'));
+const Reviews = React.lazy(() => import('./components/Reviews'));
+const Pricing = React.lazy(() => import('./components/Pricing'));
+const About = React.lazy(() => import('./components/About'));
+const DetailedScience = React.lazy(() => import('./components/DetailedScience'));
+const WorkflowAutomation = React.lazy(() => import('./components/WorkflowAutomation'));
+const Contact = React.lazy(() => import('./components/Contact'));
 
 // Navbar Component
 const Navbar = () => {
@@ -58,7 +57,7 @@ const Navbar = () => {
             <div className="container flex justify-between items-center">
                 <div className="flex items-center gap-3">
                     <div className="w-10 h-10 rounded-full overflow-hidden border border-primary/30 bg-white/5 flex items-center justify-center p-1 relative shadow-[0_0_15px_rgba(79,70,229,0.2)]">
-                        <img src="/images/logo.webp" alt="Baridex Logo" className="w-full h-full object-contain" />
+                        <img src="/images/logo.webp" alt="Baridex Logo" className="w-full h-full object-contain" width="40" height="40" />
                     </div>
                     <Link to="/" className="text-xl font-bold font-outfit tracking-tight text-heading">Baridex<span className="text-primary">Solution</span></Link>
                 </div>
@@ -195,7 +194,7 @@ const Hero = () => {
                         <div className="rounded-2xl overflow-hidden shadow-2xl">
                             <div className="h-96 w-full bg-gradient-to-br from-indigo-950 to-slate-950 relative group overflow-hidden">
                                 <img
-                                    src="https://images.unsplash.com/photo-1639322537231-2f206e06af84?auto=format&fit=crop&q=80&w=1200"
+                                    src="https://images.unsplash.com/photo-1639322537231-2f206e06af84?auto=format&fit=crop&q=60&w=800"
                                     alt="Futuristic AI Neural Network"
                                     className="w-full h-full object-cover opacity-90 group-hover:scale-110 transition-transform duration-[2000ms] ease-out"
                                     loading="eager"
@@ -272,158 +271,6 @@ const Hero = () => {
 
 
 
-// Contact Section
-const Contact = () => {
-    const [formData, setFormData] = useState({
-        name: '',
-        email: '',
-        subject: '',
-        message: ''
-    });
-    const [status, setStatus] = useState({ type: '', message: '' });
-
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        setStatus({ type: 'success', message: 'Thank you for your message! We will get back to you soon.' });
-        setFormData({ name: '', email: '', subject: '', message: '' });
-
-        // Hide message after 5 seconds
-        setTimeout(() => setStatus({ type: '', message: '' }), 5000);
-    };
-
-    return (
-        <section id="contact" className="relative scroll-mt-20">
-            <div className="container">
-                <div className="grid lg:grid-cols-2 gap-16 items-start">
-                    <motion.div
-                        initial={{ opacity: 0, x: -50 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.8 }}
-                        viewport={{ once: true }}
-                    >
-                        <h2 className="text-4xl md:text-5xl font-bold mb-8 text-heading">Let's Build Something <span className="text-primary">Amazing</span></h2>
-                        <p className="text-text-muted mb-12 text-lg">
-                            Ready to take your business to the next level? Contact our expert team today for a free consultation.
-                        </p>
-
-                        <div className="space-y-8">
-                            <div className="flex items-center gap-6 group">
-                                <div className="w-14 h-14 bg-primary/10 rounded-2xl flex items-center justify-center group-hover:bg-primary transition-colors">
-                                    <Mail className="text-primary group-hover:text-white" size={24} />
-                                </div>
-                                <div>
-                                    <div className="text-sm text-text-muted mb-1">Email Us</div>
-                                    <div className="text-xl font-bold">baridex.solutions@gmail.com</div>
-                                </div>
-                            </div>
-
-                            <div className="flex items-center gap-6 group">
-                                <div className="w-14 h-14 bg-secondary/10 rounded-2xl flex items-center justify-center group-hover:bg-secondary transition-colors">
-                                    <Phone className="text-secondary group-hover:text-white" size={24} />
-                                </div>
-                                <div>
-                                    <div className="text-sm text-text-muted mb-1">Quick Contact</div>
-                                    <div className="text-xl font-bold">+92 327 7343906</div>
-                                </div>
-                            </div>
-
-                            <div className="flex items-center gap-6 group">
-                                <div className="w-14 h-14 bg-accent/10 rounded-2xl flex items-center justify-center group-hover:bg-accent transition-colors">
-                                    <MessageSquare className="text-accent group-hover:text-white" size={24} />
-                                </div>
-                                <div>
-                                    <div className="text-sm text-text-muted mb-1">Live Chat</div>
-                                    <div className="text-xl font-bold">WhatsApp Available 24/7</div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div className="mt-12 pt-12 border-t border-glass-border flex gap-4">
-                            <a href="https://www.facebook.com/profile.php?id=61578939004584" target="_blank" rel="noopener noreferrer" className="w-12 h-12 glass flex items-center justify-center rounded-xl hover:text-primary transition-all hover:-translate-y-1"><Facebook size={20} /></a>
-                            <a href="https://www.instagram.com/baridexsolutions?igsh=MWZ0aWRxN3hkaGRqcg==" target="_blank" rel="noopener noreferrer" className="w-12 h-12 glass flex items-center justify-center rounded-xl hover:text-primary transition-all hover:-translate-y-1"><Instagram size={20} /></a>
-                            <a href="https://www.linkedin.com/company/baridex-solutions/" target="_blank" rel="noopener noreferrer" className="w-12 h-12 glass flex items-center justify-center rounded-xl hover:text-primary transition-all hover:-translate-y-1"><Linkedin size={20} /></a>
-                        </div>
-                    </motion.div>
-
-                    <motion.div
-                        initial={{ opacity: 0, x: 50 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.8 }}
-                        viewport={{ once: true }}
-                        className="glass-card p-10 rounded-3xl"
-                    >
-                        <form onSubmit={handleSubmit} className="space-y-6">
-                            <div className="grid md:grid-cols-2 gap-6">
-                                <div>
-                                    <label className="block text-sm font-medium mb-2 text-text-muted">Full Name</label>
-                                    <input
-                                        type="text"
-                                        className="w-full bg-white border border-border-light rounded-xl px-4 py-3 focus:outline-none focus:border-primary transition-colors text-heading"
-                                        placeholder="John Doe"
-                                        required
-                                        value={formData.name}
-                                        onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                                    />
-                                </div>
-                                <div>
-                                    <label className="block text-sm font-medium mb-2 text-text-muted">Email Address</label>
-                                    <input
-                                        type="email"
-                                        className="w-full bg-white border border-border-light rounded-xl px-4 py-3 focus:outline-none focus:border-primary transition-colors text-heading"
-                                        placeholder="john@example.com"
-                                        required
-                                        value={formData.email}
-                                        onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                                    />
-                                </div>
-                            </div>
-                            <div>
-                                <label className="block text-sm font-medium mb-2 text-text-muted">Subject</label>
-                                <input
-                                    type="text"
-                                    className="w-full bg-white border border-border-light rounded-xl px-4 py-3 focus:outline-none focus:border-primary transition-colors text-heading"
-                                    placeholder="Project Inquiry"
-                                    required
-                                    value={formData.subject}
-                                    onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
-                                />
-                            </div>
-                            <div>
-                                <label className="block text-sm font-medium mb-2 text-text-muted">Message Details</label>
-                                <textarea
-                                    rows="5"
-                                    className="w-full bg-white border border-border-light rounded-xl px-4 py-3 focus:outline-none focus:border-primary transition-colors text-heading resize-none"
-                                    placeholder="Tell us about your project..."
-                                    required
-                                    value={formData.message}
-                                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                                ></textarea>
-                            </div>
-                            <button type="submit" className="btn-primary w-full justify-center py-4 text-lg">
-                                Send Message <Send size={20} />
-                            </button>
-
-                            {/* Success Message UI */}
-                            <AnimatePresence>
-                                {status.message && (
-                                    <motion.div
-                                        initial={{ opacity: 0, y: 10 }}
-                                        animate={{ opacity: 1, y: 0 }}
-                                        exit={{ opacity: 0, y: -10 }}
-                                        className={`p-4 rounded-xl text-center text-sm font-medium ${status.type === 'success' ? 'bg-green-500/10 text-green-500 border border-green-500/20' : 'bg-red-500/10 text-red-500 border border-red-500/20'
-                                            }`}
-                                    >
-                                        {status.message}
-                                    </motion.div>
-                                )}
-                            </AnimatePresence>
-                        </form>
-                    </motion.div>
-                </div>
-            </div>
-        </section>
-    );
-};
 
 // Footer Component
 const Footer = () => {
@@ -575,214 +422,20 @@ const useInView = (options = {}) => {
     return { ref: setRef, inView };
 };
 
-// About Section Component
-const About = () => {
-    return (
-        <section id="process" className="relative py-24 overflow-hidden">
-            <div className="container">
-                <div className="grid lg:grid-cols-2 gap-16 items-center">
-                    <motion.div
-                        initial={{ opacity: 0, x: -50 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.8 }}
-                        viewport={{ once: true }}
-                        className="relative"
-                    >
-                        <div className="relative z-10 rounded-3xl overflow-hidden glass p-2 border border-white/10">
-                            <img
-                                src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=1200"
-                                alt="Team collaboration"
-                                className="rounded-2xl w-full h-[500px] object-cover"
-                                loading="lazy"
-                                decoding="async"
-                            />
-                            <div className="absolute inset-0 bg-gradient-to-t from-bg-dark/80 to-transparent"></div>
-                        </div>
+// Loading fallback
+const LoadingFallback = () => (
+    <div className="min-h-[50vh] flex items-center justify-center">
+        <div className="w-12 h-12 border-4 border-primary/20 border-t-primary rounded-full animate-spin"></div>
+    </div>
+);
 
-                        {/* Decorative elements */}
-                        <div className="absolute -top-6 -right-6 w-32 h-32 bg-primary/20 rounded-full blur-3xl"></div>
-                        <div className="absolute -bottom-6 -left-6 w-32 h-32 bg-secondary/20 rounded-full blur-3xl"></div>
-
-                        <motion.div
-                            animate={{ y: [0, 15, 0] }}
-                            transition={{ duration: 4, repeat: Infinity }}
-                            className="absolute bottom-10 right-10 glass p-6 rounded-2xl shadow-2xl border border-primary/20 z-20"
-                        >
-                            <div className="flex items-center gap-4">
-                                <div className="w-12 h-12 bg-primary rounded-xl flex items-center justify-center">
-                                    <TrendingUp className="text-white" size={24} />
-                                </div>
-                                <div>
-                                    <div className="text-2xl font-bold">95%</div>
-                                    <div className="text-xs text-text-muted">Efficiency Gain</div>
-                                </div>
-                            </div>
-                        </motion.div>
-                    </motion.div>
-
-                    <motion.div
-                        initial={{ opacity: 0, x: 50 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.8 }}
-                        viewport={{ once: true }}
-                    >
-                        <div className="inline-flex items-center gap-2 px-3 py-1 glass rounded-full mb-6 border-secondary/20">
-                            <span className="text-xs font-bold tracking-wider uppercase text-secondary">Our Methodology</span>
-                        </div>
-                        <h2 className="text-4xl md:text-5xl font-bold mb-8 leading-tight">
-                            Driven by Innovation, <span className="text-primary">Powered by Data</span>
-                        </h2>
-                        <p className="text-text-muted text-lg mb-8 leading-relaxed">
-                            At Baridex Solution, we don't just write code; we engineer future-proof ecosystems. Our approach combines rigorous data analysis with creative problem-solving to deliver results that matter.
-                        </p>
-
-                        <div className="space-y-6">
-                            {[
-                                { title: "Strategic Planning", desc: "Every project starts with a deep dive into your business goals and current data architecture." },
-                                { title: "Agile Development", desc: "We deploy in rapid sprints, ensuring transparent progress and flexibility to market changes." },
-                                { title: "Continuous Optimization", desc: "Launch is just the beginning. We use real-time analytics to refine and scale your solution." }
-                            ].map((step, idx) => (
-                                <div key={idx} className="flex gap-6">
-                                    <div className="flex-shrink-0 w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center font-bold text-primary">
-                                        0{idx + 1}
-                                    </div>
-                                    <div>
-                                        <h3 className="text-xl font-bold mb-2">{step.title}</h3>
-                                        <p className="text-text-muted">{step.desc}</p>
-                                    </div>
-                                </div>
-                            ))}
-                        </div>
-                    </motion.div>
-                </div>
-            </div>
-        </section>
-    );
-};
-
-// Detailed Science Section
-const DetailedScience = () => {
-    return (
-        <section className="py-24 relative overflow-hidden">
-            <div className="container">
-                <div className="grid lg:grid-cols-2 gap-16 items-center">
-                    <motion.div
-                        initial={{ opacity: 0, x: -30 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.8 }}
-                        viewport={{ once: true }}
-                    >
-                        <h2 className="text-4xl font-bold mb-6 text-heading">Advanced <span className="text-secondary">Data Analytics</span></h2>
-                        <p className="text-text-muted text-lg mb-8">
-                            Our data science team leverages state-of-the-art machine learning models to solve complex business challenges. From predictive analytics to natural language processing, we turn your raw data into a strategic asset.
-                        </p>
-                        <ul className="space-y-4">
-                            {['Predictive Modeling', 'Neural Network Architectures', 'Big Data Pipeline Engineering', 'Automated Business Intelligence'].map((item, i) => (
-                                <li key={i} className="flex items-center gap-3">
-                                    <div className="w-6 h-6 rounded-full bg-secondary/10 flex items-center justify-center">
-                                        <div className="w-2 h-2 rounded-full bg-secondary"></div>
-                                    </div>
-                                    <span className="font-medium">{item}</span>
-                                </li>
-                            ))}
-                        </ul>
-                    </motion.div>
-
-                    <motion.div
-                        initial={{ opacity: 0, scale: 0.9 }}
-                        whileInView={{ opacity: 1, scale: 1 }}
-                        transition={{ duration: 0.8 }}
-                        viewport={{ once: true }}
-                        className="glass p-4 rounded-[2rem] border-secondary/20 h-[400px]"
-                    >
-                        <img
-                            src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=1000"
-                            alt="Data visualization dashboard"
-                            className="w-full h-full object-cover rounded-2xl shadow-2xl"
-                            loading="lazy"
-                            decoding="async"
-                        />
-                    </motion.div>
-                </div>
-            </div>
-        </section>
-    );
-};
-
-// Workflow Automation Section
-const WorkflowAutomation = () => {
-    return (
-        <section className="py-24 relative overflow-hidden bg-primary/5">
-            <div className="container">
-                <div className="grid lg:grid-cols-2 gap-16 items-center">
-                    <motion.div
-                        initial={{ opacity: 0, x: 30 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.8 }}
-                        viewport={{ once: true }}
-                        className="order-last lg:order-first"
-                    >
-                        <div className="relative glass p-3 rounded-[2.5rem] border-primary/20 overflow-hidden group">
-                            <div className="absolute inset-0 bg-primary/10 group-hover:bg-transparent transition-colors duration-500 z-10"></div>
-                            <img
-                                src="https://images.unsplash.com/photo-1518186285589-2f7649de83e0?auto=format&fit=crop&q=80&w=1200"
-                                alt="Workflow Automation System"
-                                className="w-full h-[450px] object-cover rounded-[2rem] group-hover:scale-105 transition-transform duration-700"
-                                loading="lazy"
-                                decoding="async"
-                            />
-
-                            {/* Decorative Tech Elements */}
-                            <div className="absolute top-10 left-10 z-20">
-                                <motion.div
-                                    animate={{ rotate: 360 }}
-                                    transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
-                                    className="p-3 glass rounded-full"
-                                >
-                                    <TrendingUp className="text-primary" size={24} />
-                                </motion.div>
-                            </div>
-                        </div>
-                    </motion.div>
-
-                    <motion.div
-                        initial={{ opacity: 0, x: -30 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.8 }}
-                        viewport={{ once: true }}
-                    >
-                        <div className="inline-flex items-center gap-2 px-3 py-1 glass rounded-full mb-6 border-primary/20">
-                            <span className="text-xs font-bold tracking-wider uppercase text-primary">Efficiency Redefined</span>
-                        </div>
-                        <h2 className="text-4xl md:text-5xl font-bold mb-8 leading-tight text-heading">
-                            Smart <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">Workflow Automation</span>
-                        </h2>
-                        <p className="text-text-muted text-lg mb-8">
-                            Transform manual chaos into digital precision. At Baridex Solution, we build intelligent pipelines that connect your departments, legacy systems, and cloud infrastructure into a seamless, high-velocity engine.
-                        </p>
-
-                        <div className="grid sm:grid-cols-2 gap-6">
-                            {[
-                                { title: "Custom ERP Bridges", desc: "Unify your operations with purpose-built data bridges." },
-                                { title: "RPA Deployment", desc: "Automate repetitive tasks with robotic precision." },
-                                { title: "API Ecosystems", desc: "Build secure, scalable connections between any tool." },
-                                { title: "Real-time Monitoring", desc: "Live dashboards for total visibility over your flows." }
-                            ].map((item, i) => (
-                                <div key={i} className="glass-card p-5 rounded-2xl border-white/5">
-                                    <h3 className="font-bold mb-2 text-heading">{item.title}</h3>
-                                    <p className="text-xs text-text-muted leading-relaxed">{item.desc}</p>
-                                </div>
-                            ))}
-                        </div>
-
-                        <div className="mt-10">
-                            <a href="#contact" className="btn-primary">Optimize My Workflow</a>
-                        </div>
-                    </motion.div>
-                </div>
-            </div>
-        </section>
-    );
+// Scroll to top on route change
+const ScrollToTop = () => {
+    const { pathname } = useLocation();
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [pathname]);
+    return null;
 };
 
 function App() {
@@ -796,53 +449,59 @@ function App() {
 
     return (
         <Router>
+            <ScrollToTop />
             <div className="bg-bg-main min-h-screen text-text-main selection:bg-primary selection:text-white">
                 <Navbar />
 
                 <main className="min-h-[70vh]">
-                    <Routes>
-                        <Route path="/" element={
-                            <>
-                                <Hero />
-                                <section className="py-24 bg-bg-section border-y border-border-light">
-                                    <div className="container">
-                                        <div className="grid grid-cols-2 lg:grid-cols-4 gap-12">
-                                            {[
-                                                { label: "Founded", val: "2022", start: 2002 },
-                                                { label: "Awards Won", val: "15+" },
-                                                { label: "Lines of Code", val: "10M+" },
-                                                { label: "Countries Served", val: "12" }
-                                            ].map((item, idx) => (
-                                                <div key={idx} className="flex flex-col items-center">
-                                                    <div className="text-5xl md:text-6xl font-bold font-outfit text-heading mb-3">
-                                                        <Counter value={item.val} startValue={item.start} />
+                    <React.Suspense fallback={<LoadingFallback />}>
+                        <Routes>
+                            <Route path="/" element={
+                                <>
+                                    <Hero />
+                                    <section className="py-24 bg-bg-section border-y border-border-light">
+                                        <div className="container">
+                                            <div className="grid grid-cols-2 lg:grid-cols-4 gap-12">
+                                                {[
+                                                    { label: "Founded", val: "2022", start: 2002 },
+                                                    { label: "Awards Won", val: "15+" },
+                                                    { label: "Lines of Code", val: "10M+" },
+                                                    { label: "Countries Served", val: "12" }
+                                                ].map((item, idx) => (
+                                                    <div key={idx} className="flex flex-col items-center">
+                                                        <div className="text-5xl md:text-6xl font-bold font-outfit text-heading mb-3">
+                                                            <Counter value={item.val} startValue={item.start} />
+                                                        </div>
+                                                        <div className="text-sm text-text-muted uppercase tracking-[0.2em] font-semibold">{item.label}</div>
                                                     </div>
-                                                    <div className="text-sm text-text-muted uppercase tracking-[0.2em] font-semibold">{item.label}</div>
-                                                </div>
-                                            ))}
+                                                ))}
+                                            </div>
                                         </div>
-                                    </div>
-                                </section>
-                                <About />
-                                <DetailedScience />
-                                <WorkflowAutomation />
-                            </>
-                        } />
-                        <Route path="/services" element={<Services onOpenModal={openModal} />} />
-                        <Route path="/portfolio" element={<Portfolio />} />
-                        <Route path="/team" element={<Team />} />
-                        <Route path="/reviews" element={<Reviews />} />
-                        <Route path="/pricing" element={<Pricing />} />
-                        <Route path="/process" element={<About />} />
-                        <Route path="/contact" element={<Contact />} />
-                    </Routes>
+                                    </section>
+                                    <About />
+                                    <DetailedScience />
+                                    <WorkflowAutomation />
+                                </>
+                            } />
+                            <Route path="/services" element={<Services onOpenModal={openModal} />} />
+                            <Route path="/portfolio" element={<Portfolio />} />
+                            <Route path="/team" element={<Team />} />
+                            <Route path="/reviews" element={<Reviews />} />
+                            <Route path="/pricing" element={<Pricing />} />
+                            <Route path="/process" element={<About />} />
+                            <Route path="/contact" element={<Contact />} />
+                        </Routes>
+                    </React.Suspense>
                 </main>
 
-                <ServiceModal
-                    isOpen={isModalOpen}
-                    onClose={() => setIsModalOpen(false)}
-                    selectedService={selectedService}
-                />
+                <React.Suspense fallback={null}>
+                    <ServiceModal
+                        key={selectedService}
+                        isOpen={isModalOpen}
+                        onClose={() => setIsModalOpen(false)}
+                        selectedService={selectedService}
+                    />
+                </React.Suspense>
 
                 <Footer />
                 <WhatsAppButton />
