@@ -12,15 +12,16 @@ const Team = () => {
         { name: "Irfan Ghaffar", role: "ML Engineer", verified: false },
         { name: "Abdulrehman", role: "Data Analyst", verified: false },
         { name: "Babar Ali", role: "Data Scientist", verified: false },
+        { name: "Shan", role: "Client Relationship Manager", verified: false },
         { name: "Sardar Alam", role: "AI Engineer", verified: false },
         { name: "Anaab", role: "Content Writer", verified: false },
         { name: "Abdullah", role: "Logo Designer", verified: false },
         { name: "Zain Shafique", role: "UI/UX Designer", verified: false },
         { name: "Asfand Yar Wali", role: "Software Engineer", verified: false },
         { name: "Sofia", role: "Mobile app developer", verified: false },
-        { name: "Sehr", role: "Content Writer", verified: false },
+        { name: "Sehar", role: "Content Writer", verified: false },
         { name: "Rubeena Khan", role: "AI Engineer", verified: false },
-        { name: "Noor Fatime", role: "Full Stack Developer", verified: false }
+        { name: "Noor Fatima", role: "Full Stack Developer", verified: false }
     ];
 
     return (
