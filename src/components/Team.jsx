@@ -50,7 +50,7 @@ const Team = () => {
                             whileInView={{ opacity: 1, scale: 1 }}
                             transition={{ duration: 0.4, delay: idx * 0.05 }}
                             viewport={{ once: true }}
-                            className="bg-white p-8 rounded-[2.5rem] shadow-sm hover:shadow-xl transition-all duration-300 border border-slate-100 flex flex-col items-center text-center group"
+                            className="bg-white p-8 rounded-[2.5rem] shadow-sm hover:shadow-xl transition-[transform,box-shadow,background-color,border-color] duration-300 border border-slate-100 flex flex-col items-center text-center group"
                         >
                             <div className="relative mb-6">
                                 <div className="w-20 h-20 rounded-full bg-slate-50 flex items-center justify-center text-slate-400 group-hover:bg-[#00A86B]/10 group-hover:text-[#00A86B] transition-colors duration-300">

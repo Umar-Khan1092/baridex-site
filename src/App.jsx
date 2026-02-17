@@ -66,6 +66,8 @@ const Navbar = () => {
                             width="36"
                             height="36"
                             loading="eager"
+                            fetchpriority="high"
+                            decoding="async"
                         />
                     </div>
                     <Link to="/" className="text-xl font-bold font-outfit tracking-tight text-heading">Baridex<span className="text-primary">Solution</span></Link>

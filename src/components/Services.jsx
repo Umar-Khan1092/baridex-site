@@ -136,7 +136,7 @@ const Services = ({ onOpenModal }) => {
                             whileInView={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.5, delay: idx * 0.1 }}
                             viewport={{ once: true }}
-                            className="bg-[#F8FFF9] p-8 rounded-[2rem] border border-[#D1F5D9] group flex flex-col items-start shadow-sm hover:shadow-md transition-all duration-300"
+                            className="bg-[#F8FFF9] p-8 rounded-[2rem] border border-[#D1F5D9] group flex flex-col items-start shadow-sm hover:shadow-md transition-[box-shadow,background-color,border-color,transform] duration-300"
                         >
                             <div className="w-14 h-14 rounded-lg bg-[#00A86B] flex items-center justify-center mb-6 shadow-lg shadow-[#00A86B]/20">
                                 {service.icon}

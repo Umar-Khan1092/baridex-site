@@ -101,7 +101,7 @@ const Pricing = () => {
                             whileInView={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.5, delay: idx * 0.1 }}
                             viewport={{ once: true }}
-                            className={`relative bg-white p-8 rounded-[2.5rem] shadow-sm hover:shadow-2xl transition-all duration-500 border ${plan.highlight ? 'border-[#00A86B] scale-105 z-10' : 'border-slate-100'} flex flex-col group`}
+                            className={`relative bg-white p-8 rounded-[2.5rem] shadow-sm hover:shadow-2xl transition-[transform,box-shadow,border-color,background-color] duration-500 border ${plan.highlight ? 'border-[#00A86B] scale-105 z-10' : 'border-slate-100'} flex flex-col group`}
                         >
                             {plan.badge && (
                                 <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-[#00A86B] text-white text-[10px] font-bold px-4 py-1.5 rounded-full shadow-lg">

@@ -272,7 +272,7 @@ const Portfolio = () => {
                             whileInView={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.5, delay: idx * 0.1 }}
                             viewport={{ once: true }}
-                            className="bg-white p-6 rounded-[2rem] border border-[#D1F5D9] group flex flex-col items-start shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-2"
+                            className="bg-white p-6 rounded-[2rem] border border-[#D1F5D9] group flex flex-col items-start shadow-sm hover:shadow-xl transition-[transform,box-shadow,background-color,border-color] duration-300 hover:-translate-y-2"
                         >
                             <div className="w-14 h-14 rounded-2xl bg-[#00A86B] flex items-center justify-center mb-6 shadow-lg shadow-[#00A86B]/20 transition-transform group-hover:rotate-6">
                                 {project.icon}
