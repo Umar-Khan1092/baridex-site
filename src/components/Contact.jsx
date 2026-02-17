@@ -68,9 +68,9 @@ const Contact = () => {
                         </div>
 
                         <div className="mt-12 pt-12 border-t border-glass-border flex gap-4">
-                            <a href="https://www.facebook.com/profile.php?id=61578939004584" target="_blank" rel="noopener noreferrer" className="w-12 h-12 glass flex items-center justify-center rounded-xl hover:text-primary transition-all hover:-translate-y-1"><Facebook size={20} /></a>
-                            <a href="https://www.instagram.com/baridexsolutions?igsh=MWZ0aWRxN3hkaGRqcg==" target="_blank" rel="noopener noreferrer" className="w-12 h-12 glass flex items-center justify-center rounded-xl hover:text-primary transition-all hover:-translate-y-1"><Instagram size={20} /></a>
-                            <a href="https://www.linkedin.com/company/baridex-solutions/" target="_blank" rel="noopener noreferrer" className="w-12 h-12 glass flex items-center justify-center rounded-xl hover:text-primary transition-all hover:-translate-y-1"><Linkedin size={20} /></a>
+                            <a href="https://www.facebook.com/profile.php?id=61578939004584" target="_blank" rel="noopener noreferrer" className="w-12 h-12 glass flex items-center justify-center rounded-xl hover:text-primary transition-all hover:-translate-y-1" aria-label="Follow us on Facebook"><Facebook size={20} /></a>
+                            <a href="https://www.instagram.com/baridexsolutions?igsh=MWZ0aWRxN3hkaGRqcg==" target="_blank" rel="noopener noreferrer" className="w-12 h-12 glass flex items-center justify-center rounded-xl hover:text-primary transition-all hover:-translate-y-1" aria-label="Follow us on Instagram"><Instagram size={20} /></a>
+                            <a href="https://www.linkedin.com/company/baridex-solutions/" target="_blank" rel="noopener noreferrer" className="w-12 h-12 glass flex items-center justify-center rounded-xl hover:text-primary transition-all hover:-translate-y-1" aria-label="Follow us on LinkedIn"><Linkedin size={20} /></a>
                         </div>
                     </motion.div>
 

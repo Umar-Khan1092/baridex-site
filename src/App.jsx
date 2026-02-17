@@ -55,7 +55,7 @@ const Navbar = () => {
     ];
 
     return (
-        <nav className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${isScrolled ? 'glass py-2 shadow-lg' : 'bg-transparent py-4'}`}>
+        <nav className={`fixed top-0 left-0 w-full z-50 transition-[padding,background-color,border-color] duration-300 ${isScrolled ? 'glass py-2 shadow-lg' : 'bg-transparent py-4'}`}>
             <div className="container flex justify-between items-center">
                 <div className="flex items-center gap-3">
                     <div className="w-9 h-9 rounded-full overflow-hidden border border-primary/20 bg-white/5 flex items-center justify-center p-1 relative shadow-sm">
@@ -277,9 +277,9 @@ const Footer = () => {
                             <li className="flex items-center gap-2 text-text-muted text-sm"><Mail size={14} /> baridex.solutions@gmail.com</li>
                             <li>
                                 <div className="flex gap-4 mt-2">
-                                    <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="text-text-muted hover:text-primary transition-colors"><Facebook size={18} /></a>
-                                    <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="text-text-muted hover:text-primary transition-colors"><Instagram size={18} /></a>
-                                    <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-text-muted hover:text-primary transition-colors"><Linkedin size={18} /></a>
+                                    <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="text-text-muted hover:text-primary transition-colors" aria-label="Follow us on Facebook"><Facebook size={18} /></a>
+                                    <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="text-text-muted hover:text-primary transition-colors" aria-label="Follow us on Instagram"><Instagram size={18} /></a>
+                                    <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-text-muted hover:text-primary transition-colors" aria-label="Follow us on LinkedIn"><Linkedin size={18} /></a>
                                 </div>
                             </li>
                         </ul>
