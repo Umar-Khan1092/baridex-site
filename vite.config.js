@@ -21,8 +21,9 @@ export default defineConfig({
         },
       },
     },
-    cssCodeSplit: true,
-    chunkSizeWarningLimit: 500,
+    cssCodeSplit: false,
+    assetsInlineLimit: 10000,
+    chunkSizeWarningLimit: 1000,
   },
   preview: {
     host: true,

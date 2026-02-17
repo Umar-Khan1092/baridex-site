@@ -1,20 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import {
-    Database,
-    Code2,
-    TrendingUp,
-    Mail,
-    Phone,
-    MessageSquare,
-    Send,
-    Menu,
-    X,
-    ChevronRight,
-    Linkedin,
-    Instagram,
-    Facebook,
-} from 'lucide-react';
+
 import { BrowserRouter as Router, Routes, Route, Link, useLocation } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
 import SEO from './components/SEO';
@@ -100,43 +85,38 @@ const Navbar = () => {
                     onClick={() => setIsMenuOpen(!isMenuOpen)}
                     aria-label={isMenuOpen ? "Close Menu" : "Open Menu"}
                 >
-                    {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+                    {isMenuOpen ? (
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" /></svg>
+                    ) : (
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="3" y1="12" x2="21" y2="12" /><line x1="3" y1="6" x2="21" y2="6" /><line x1="3" y1="18" x2="21" y2="18" /></svg>
+                    )}
                 </button>
             </div>
 
-            {/* Mobile Menu */}
-            <AnimatePresence>
-                {isMenuOpen && (
-                    <motion.div
-                        initial={{ opacity: 0, height: 0 }}
-                        animate={{ opacity: 1, height: 'auto' }}
-                        exit={{ opacity: 0, height: 0 }}
-                        className="absolute top-full left-0 w-full glass overflow-hidden md:hidden shadow-xl"
+            {/* Mobile Menu - CSS based for performance */}
+            <div className={`absolute top-full left-0 w-full transition-all duration-300 ease-in-out overflow-hidden md:hidden shadow-xl ${isMenuOpen ? 'max-h-[500px] opacity-100 py-6' : 'max-h-0 opacity-0 py-0'} glass`}>
+                <div className="flex flex-col px-6 gap-4">
+                    {navLinks.map((link) => (
+                        <Link
+                            key={link.name}
+                            to={link.href}
+                            className="text-lg font-semibold text-heading hover:text-accent"
+                            onClick={() => setIsMenuOpen(false)}
+                        >
+                            {link.name}
+                        </Link>
+                    ))}
+                    <a
+                        href="https://wa.me/923277343906"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="btn-primary w-full justify-center"
+                        onClick={() => setIsMenuOpen(false)}
                     >
-                        <div className="flex flex-col p-6 gap-4">
-                            {navLinks.map((link) => (
-                                <Link
-                                    key={link.name}
-                                    to={link.href}
-                                    className="text-lg font-semibold text-heading hover:text-accent"
-                                    onClick={() => setIsMenuOpen(false)}
-                                >
-                                    {link.name}
-                                </Link>
-                            ))}
-                            <a
-                                href="https://wa.me/923277343906"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="btn-primary w-full justify-center"
-                                onClick={() => setIsMenuOpen(false)}
-                            >
-                                Get Started
-                            </a>
-                        </div>
-                    </motion.div>
-                )}
-            </AnimatePresence>
+                        Get Started
+                    </a>
+                </div>
+            </div>
         </nav>
     );
 };
@@ -197,7 +177,7 @@ const Hero = () => {
                         <div className="rounded-2xl overflow-hidden shadow-xl">
                             <div className="h-[450px] w-full bg-slate-900 relative group overflow-hidden">
                                 <img
-                                    src="https://images.unsplash.com/photo-1639322537231-2f206e06af84?auto=format&fit=crop&q=40&w=600"
+                                    src="https://images.unsplash.com/photo-1639322537231-2f206e06af84?auto=format&fit=crop&q=40&w=500"
                                     alt="Futuristic AI Neural Network"
                                     className="w-full h-full object-cover opacity-80"
                                     loading="eager"
@@ -210,17 +190,17 @@ const Hero = () => {
                                 <div className="absolute inset-0 flex items-center justify-center">
                                     <div className="w-48 h-48 border border-white/10 rounded-full flex items-center justify-center animate-pulse">
                                         <div className="w-32 h-32 bg-primary/20 backdrop-blur-md rounded-full flex items-center justify-center">
-                                            <Database size={40} className="text-white opacity-80" />
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-white opacity-80"><path d="M3 5V19C3 20.1 5.24 21 8 21C10.76 21 13 20.1 13 19V5" /><path d="M3 5C3 6.1 5.24 7 8 7C10.76 7 13 6.1 13 5C13 3.9 10.76 3 8 3C5.24 3 3 3.9 3 5Z" /><path d="M13 12C13 13.1 15.24 14 18 14C20.76 14 23 13.1 23 12V5" /><path d="M13 19C13 20.1 15.24 21 18 21C20.76 21 23 20.1 23 19V12" /><path d="M23 5C23 6.1 20.76 7 18 7C15.24 7 13 6.1 13 5C13 3.9 15.24 3 18 3C20.76 3 23 3.9 23 5Z" /></svg>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
-                        {/* Floating elements - simplified for performance */}
+                        {/* Floating elements - expanded with raw SVG for performance */}
                         <div className="absolute -top-6 -right-6 glass p-3 rounded-xl shadow-lg border-primary/20">
                             <div className="flex items-center gap-2">
-                                <TrendingUp size={18} className="text-green-500" />
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-green-500"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17" /><polyline points="16 7 22 7 22 13" /></svg>
                                 <div>
                                     <div className="text-[10px] text-text-muted">ROI</div>
                                     <div className="text-sm font-bold">+245%</div>
@@ -230,7 +210,7 @@ const Hero = () => {
 
                         <div className="absolute -bottom-4 -left-6 glass p-3 rounded-xl shadow-lg border-secondary/20">
                             <div className="flex items-center gap-2">
-                                <Code2 size={18} className="text-blue-500" />
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-blue-500"><polyline points="16 18 22 12 16 6" /><polyline points="8 6 2 12 8 18" /></svg>
                                 <div>
                                     <div className="text-[10px] text-text-muted">Status</div>
                                     <div className="text-sm font-bold">Live</div>
@@ -275,13 +255,13 @@ const Footer = () => {
                     <div>
                         <h2 className="text-base font-bold mb-6 text-heading">Connect</h2>
                         <ul className="space-y-4">
-                            <li className="flex items-center gap-2 text-text-muted text-sm"><Phone size={14} /> +92 327 7343906</li>
-                            <li className="flex items-center gap-2 text-text-muted text-sm"><Mail size={14} /> baridex.solutions@gmail.com</li>
+                            <li className="flex items-center gap-2 text-text-muted text-sm"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" /></svg> +92 327 7343906</li>
+                            <li className="flex items-center gap-2 text-text-muted text-sm"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m22 2-7 20-4-9-9-4Z" /><path d="M22 2 11 13" /></svg> baridex.solutions@gmail.com</li>
                             <li>
                                 <div className="flex gap-4 mt-2">
-                                    <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="text-text-muted hover:text-primary transition-colors" aria-label="Follow us on Facebook"><Facebook size={18} /></a>
-                                    <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="text-text-muted hover:text-primary transition-colors" aria-label="Follow us on Instagram"><Instagram size={18} /></a>
-                                    <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-text-muted hover:text-primary transition-colors" aria-label="Follow us on LinkedIn"><Linkedin size={18} /></a>
+                                    <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="text-text-muted hover:text-primary transition-colors" aria-label="Follow us on Facebook"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" /></svg></a>
+                                    <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="text-text-muted hover:text-primary transition-colors" aria-label="Follow us on Instagram"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5" /><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" /><line x1="17.5" y1="6.5" x2="17.51" y2="6.5" /></svg></a>
+                                    <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-text-muted hover:text-primary transition-colors" aria-label="Follow us on LinkedIn"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" /><rect x="2" y="9" width="4" height="12" /><circle cx="4" cy="4" r="2" /></svg></a>
                                 </div>
                             </li>
                         </ul>
@@ -418,28 +398,30 @@ function App() {
                                     <>
                                         <SEO path="/" />
                                         <Hero />
-                                        <section className="py-20 bg-bg-section border-y border-border">
-                                            <div className="container">
-                                                <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
-                                                    {[
-                                                        { label: "Founded", val: "2022", start: 2002 },
-                                                        { label: "Awards Won", val: "15+" },
-                                                        { label: "Lines of Code", val: "10M+" },
-                                                        { label: "Countries Served", val: "12" }
-                                                    ].map((item, idx) => (
-                                                        <div key={idx} className="flex flex-col items-center">
-                                                            <div className="text-4xl md:text-5xl font-bold font-outfit text-heading mb-2">
-                                                                <Counter value={item.val} startValue={item.start} />
+                                        <React.Suspense fallback={<LoadingFallback />}>
+                                            <section className="py-20 bg-bg-section border-y border-border">
+                                                <div className="container">
+                                                    <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
+                                                        {[
+                                                            { label: "Founded", val: "2022", start: 2002 },
+                                                            { label: "Awards Won", val: "15+" },
+                                                            { label: "Lines of Code", val: "10M+" },
+                                                            { label: "Countries Served", val: "12" }
+                                                        ].map((item, idx) => (
+                                                            <div key={idx} className="flex flex-col items-center">
+                                                                <div className="text-4xl md:text-5xl font-bold font-outfit text-heading mb-2">
+                                                                    <Counter value={item.val} startValue={item.start} />
+                                                                </div>
+                                                                <div className="text-[10px] text-text-muted uppercase tracking-widest font-bold">{item.label}</div>
                                                             </div>
-                                                            <div className="text-[10px] text-text-muted uppercase tracking-widest font-bold">{item.label}</div>
-                                                        </div>
-                                                    ))}
+                                                        ))}
+                                                    </div>
                                                 </div>
-                                            </div>
-                                        </section>
-                                        <About />
-                                        <DetailedScience />
-                                        <WorkflowAutomation />
+                                            </section>
+                                            <About />
+                                            <DetailedScience />
+                                            <WorkflowAutomation />
+                                        </React.Suspense>
                                     </>
                                 } />
                                 <Route path="/services" element={<><SEO title="Our Services" path="/services" /><Services onOpenModal={openModal} /></>} />
