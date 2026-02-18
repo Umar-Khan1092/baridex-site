@@ -46,7 +46,7 @@ const Navbar = () => {
                     <div className="flex items-center gap-3">
                         <div className="w-[46px] h-[46px] rounded-full overflow-hidden border border-primary/20 bg-white/5 flex items-center justify-center p-1 relative shadow-sm">
                             <img
-                                src="/images/logo.webp"
+                                src="/images/logo (1).avif"
                                 alt="Baridex Logo"
                                 className="w-full h-full object-contain"
                                 width="46"
