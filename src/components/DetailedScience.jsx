@@ -36,8 +36,8 @@ const DetailedScience = () => {
                         className="glass p-4 rounded-[2rem] border-secondary/20 h-[400px]"
                     >
                         <img
-                            src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?format=webp&fit=crop&q=80&w=800"
-                            alt="Data visualization dashboard showing growth metrics"
+                            src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?format=webp&fit=crop&q=50&w=600"
+                            alt="Data visualization dashboard showing advanced growth metrics"
                             className="w-full h-full object-cover rounded-2xl shadow-2xl"
                             width="500"
                             height="400"

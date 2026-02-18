@@ -11,19 +11,49 @@
 
     <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
 
-    <!-- Font Optimization -->
+    <!-- Font/Image Optimization -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://images.unsplash.com">
+    <link rel="dns-prefetch" href="https://images.unsplash.com">
+
+    <link rel="preload" as="image"
+        href="https://images.unsplash.com/photo-1639322537231-2f206e06af84?format=webp&fit=crop&q=60&w=600"
+        fetchpriority="high">
+
+    <!-- Critical CSS Inlining for FCP -->
+    <style>
+        :root {
+            --primary: #0C2146;
+            --secondary: #1E3A8A;
+            --accent: #2563EB;
+            --bg-main: #FFFFFF;
+            --text-heading: #0C2146;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #FFFFFF;
+            font-family: 'Inter', system-ui, sans-serif;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+    </style>
+
     <link rel="preload" as="style"
         href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap">
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap"
         rel="stylesheet" media="print" onload="this.media='all'">
-    <noscript>
-        <link
-            href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap"
-            rel="stylesheet">
-    </noscript>
+
+    <!-- Parallelize discovery of CSS -->
+    <link rel="stylesheet" href="/src/index.css">
 </head>
 
 <body>

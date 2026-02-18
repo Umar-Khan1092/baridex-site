@@ -16,8 +16,8 @@ const About = () => {
                     >
                         <div className="relative z-10 rounded-3xl overflow-hidden glass p-2 border border-white/10">
                             <img
-                                src="https://images.unsplash.com/photo-1552664730-d307ca884978?format=webp&fit=crop&q=80&w=800"
-                                alt="Team members collaborating on a project"
+                                src="https://images.unsplash.com/photo-1552664730-d307ca884978?format=webp&fit=crop&q=50&w=600"
+                                alt="Baridex team members collaborating on a project together"
                                 className="rounded-2xl w-full h-[500px] object-cover"
                                 width="500"
                                 height="500"
