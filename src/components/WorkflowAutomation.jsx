@@ -17,9 +17,11 @@ const WorkflowAutomation = () => {
                         <div className="relative glass p-3 rounded-[2.5rem] border-primary/20 overflow-hidden group">
                             <div className="absolute inset-0 bg-primary/10 group-hover:bg-transparent transition-colors duration-500 z-10"></div>
                             <img
-                                src="https://images.unsplash.com/photo-1518186285589-2f7649de83e0?auto=format&fit=crop&q=60&w=800"
-                                alt="Workflow Automation System"
+                                src="https://images.unsplash.com/photo-1518186285589-2f7649de83e0?format=webp&fit=crop&q=80&w=1200"
+                                alt="Intelligent Workflow Automation System in action"
                                 className="w-full h-[450px] object-cover rounded-[2rem] group-hover:scale-105 transition-transform duration-700"
+                                width="800"
+                                height="450"
                                 loading="lazy"
                                 decoding="async"
                             />

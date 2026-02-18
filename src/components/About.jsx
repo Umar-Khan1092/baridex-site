@@ -16,14 +16,16 @@ const About = () => {
                     >
                         <div className="relative z-10 rounded-3xl overflow-hidden glass p-2 border border-white/10">
                             <img
-                                src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=40&w=500"
-                                alt="Team collaboration"
+                                src="https://images.unsplash.com/photo-1552664730-d307ca884978?format=webp&fit=crop&q=80&w=800"
+                                alt="Team members collaborating on a project"
                                 className="rounded-2xl w-full h-[500px] object-cover"
+                                width="500"
+                                height="500"
                                 loading="lazy"
                                 decoding="async"
                                 sizes="(max-width: 768px) 100vw, 50vw"
                             />
-                            <div className="absolute inset-0 bg-gradient-to-t from-bg-dark/80 to-transparent"></div>
+                            <div className="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent"></div>
                         </div>
 
                         {/* Decorative elements */}

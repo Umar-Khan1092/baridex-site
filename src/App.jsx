@@ -40,84 +40,86 @@ const Navbar = () => {
     ];
 
     return (
-        <nav className={`fixed top-0 left-0 w-full z-50 transition-[padding,background-color,border-color] duration-300 ${isScrolled ? 'glass py-2 shadow-lg' : 'bg-transparent py-4'}`}>
-            <div className="container flex justify-between items-center">
-                <div className="flex items-center gap-3">
-                    <div className="w-9 h-9 rounded-full overflow-hidden border border-primary/20 bg-white/5 flex items-center justify-center p-1 relative shadow-sm">
-                        <img
-                            src="/images/logo.webp"
-                            alt="Baridex Logo"
-                            className="w-full h-full object-contain"
-                            width="36"
-                            height="36"
-                            loading="eager"
-                            fetchpriority="high"
-                            decoding="async"
-                        />
+        <header>
+            <nav className={`fixed top-0 left-0 w-full z-50 transition-[padding,background-color,border-color] duration-300 ${isScrolled ? 'glass py-2 shadow-lg' : 'bg-transparent py-4'}`}>
+                <div className="container flex justify-between items-center">
+                    <div className="flex items-center gap-3">
+                        <div className="w-9 h-9 rounded-full overflow-hidden border border-primary/20 bg-white/5 flex items-center justify-center p-1 relative shadow-sm">
+                            <img
+                                src="/images/logo.webp"
+                                alt="Baridex Logo"
+                                className="w-full h-full object-contain"
+                                width="36"
+                                height="36"
+                                loading="eager"
+                                fetchpriority="high"
+                                decoding="async"
+                            />
+                        </div>
+                        <Link to="/" className="text-xl font-bold font-outfit tracking-tight text-heading">Baridex<span className="text-primary">Solution</span></Link>
                     </div>
-                    <Link to="/" className="text-xl font-bold font-outfit tracking-tight text-heading">Baridex<span className="text-primary">Solution</span></Link>
-                </div>
 
-                {/* Desktop Menu */}
-                <div className="hidden md:flex items-center gap-7">
-                    {navLinks.map((link) => (
-                        <Link
-                            key={link.name}
-                            to={link.href}
-                            className={`text-sm font-semibold transition-all duration-200 hover:text-accent ${location.pathname === link.href ? 'text-accent' : 'text-heading/90'}`}
+                    {/* Desktop Menu */}
+                    <div className="hidden md:flex items-center gap-7">
+                        {navLinks.map((link) => (
+                            <Link
+                                key={link.name}
+                                to={link.href}
+                                className={`text-sm font-semibold transition-all duration-200 hover:text-accent ${location.pathname === link.href ? 'text-accent' : 'text-heading/90'}`}
+                            >
+                                {link.name}
+                            </Link>
+                        ))}
+                        <a
+                            href="https://wa.me/923277343906"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="btn-primary py-2 px-5 text-sm"
                         >
-                            {link.name}
-                        </Link>
-                    ))}
-                    <a
-                        href="https://wa.me/923277343906"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="btn-primary py-2 px-5 text-sm"
+                            Get Started
+                        </a>
+                    </div>
+
+                    {/* Mobile Toggle */}
+                    <button
+                        className="md:hidden text-primary p-2"
+                        onClick={() => setIsMenuOpen(!isMenuOpen)}
+                        aria-label={isMenuOpen ? "Close Menu" : "Open Menu"}
                     >
-                        Get Started
-                    </a>
+                        {isMenuOpen ? (
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" /></svg>
+                        ) : (
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="3" y1="12" x2="21" y2="12" /><line x1="3" y1="6" x2="21" y2="6" /><line x1="3" y1="18" x2="21" y2="18" /></svg>
+                        )}
+                    </button>
                 </div>
 
-                {/* Mobile Toggle */}
-                <button
-                    className="md:hidden text-primary p-2"
-                    onClick={() => setIsMenuOpen(!isMenuOpen)}
-                    aria-label={isMenuOpen ? "Close Menu" : "Open Menu"}
-                >
-                    {isMenuOpen ? (
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" /></svg>
-                    ) : (
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="3" y1="12" x2="21" y2="12" /><line x1="3" y1="6" x2="21" y2="6" /><line x1="3" y1="18" x2="21" y2="18" /></svg>
-                    )}
-                </button>
-            </div>
-
-            {/* Mobile Menu - CSS based for performance */}
-            <div className={`absolute top-full left-0 w-full transition-all duration-300 ease-in-out overflow-hidden md:hidden shadow-xl ${isMenuOpen ? 'max-h-[500px] opacity-100 py-6' : 'max-h-0 opacity-0 py-0'} glass`}>
-                <div className="flex flex-col px-6 gap-4">
-                    {navLinks.map((link) => (
-                        <Link
-                            key={link.name}
-                            to={link.href}
-                            className="text-lg font-semibold text-heading hover:text-accent"
+                {/* Mobile Menu - CSS based for performance */}
+                <div className={`absolute top-full left-0 w-full transition-all duration-300 ease-in-out overflow-hidden md:hidden shadow-xl ${isMenuOpen ? 'max-h-[500px] opacity-100 py-6' : 'max-h-0 opacity-0 py-0'} glass`}>
+                    <div className="flex flex-col px-6 gap-4">
+                        {navLinks.map((link) => (
+                            <Link
+                                key={link.name}
+                                to={link.href}
+                                className="text-lg font-semibold text-heading hover:text-accent"
+                                onClick={() => setIsMenuOpen(false)}
+                            >
+                                {link.name}
+                            </Link>
+                        ))}
+                        <a
+                            href="https://wa.me/923277343906"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="btn-primary w-full justify-center"
                             onClick={() => setIsMenuOpen(false)}
                         >
-                            {link.name}
-                        </Link>
-                    ))}
-                    <a
-                        href="https://wa.me/923277343906"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="btn-primary w-full justify-center"
-                        onClick={() => setIsMenuOpen(false)}
-                    >
-                        Get Started
-                    </a>
+                            Get Started
+                        </a>
+                    </div>
                 </div>
-            </div>
-        </nav>
+            </nav>
+        </header>
     );
 };
 
@@ -142,7 +144,7 @@ const Hero = () => {
                     </p>
                     <div className="flex flex-wrap gap-4">
                         <Link to="/services" className="btn-primary">
-                            Our Services <ChevronRight size={18} />
+                            Our Services <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="9 18 15 12 9 6" /></svg>
                         </Link>
                         <a
                             href="https://wa.me/923277343906"
@@ -177,9 +179,11 @@ const Hero = () => {
                         <div className="rounded-2xl overflow-hidden shadow-xl">
                             <div className="h-[450px] w-full bg-slate-900 relative group overflow-hidden">
                                 <img
-                                    src="https://images.unsplash.com/photo-1639322537231-2f206e06af84?auto=format&fit=crop&q=40&w=500"
+                                    src="https://images.unsplash.com/photo-1639322537231-2f206e06af84?format=webp&fit=crop&q=80&w=800"
                                     alt="Futuristic AI Neural Network"
                                     className="w-full h-full object-cover opacity-80"
+                                    width="500"
+                                    height="450"
                                     loading="eager"
                                     fetchpriority="high"
                                     decoding="async"
@@ -233,7 +237,7 @@ const Footer = () => {
                     <div className="col-span-1 md:col-span-2">
                         <div className="flex items-center gap-3 mb-6">
                             <div className="w-10 h-10 rounded-full overflow-hidden border border-primary/20 bg-white/5 flex items-center justify-center p-1.5 shadow-sm">
-                                <img src="/images/logo.webp" alt="Baridex Logo" className="w-full h-full object-contain" width="40" height="40" loading="lazy" />
+                                <img src="/images/logo.webp" alt="Baridex Logo" className="w-full h-full object-contain" width="40" height="40" loading="lazy" decoding="async" />
                             </div>
                             <span className="text-2xl font-bold font-outfit tracking-tight text-heading">Baridex<span className="text-primary">Solution</span></span>
                         </div>
@@ -333,7 +337,7 @@ const Counter = ({ value, startValue = 0 }) => {
     }, [inView, value, startValue]);
 
     return (
-        <span ref={ref}>
+        <span ref={ref} className="tabular-nums inline-block min-w-[1.2em]">
             {displayValue}{value.includes('M+') ? 'M+' : value.includes('+') ? '+' : ''}
         </span>
     );
@@ -391,7 +395,7 @@ function App() {
                 <div className="bg-bg-main min-h-screen text-text-main selection:bg-primary/20">
                     <Navbar />
 
-                    <main className="min-h-[60vh]">
+                    <main id="main-content" className="min-h-[60vh]">
                         <React.Suspense fallback={<LoadingFallback />}>
                             <Routes>
                                 <Route path="/" element={
@@ -399,18 +403,18 @@ function App() {
                                         <SEO path="/" />
                                         <Hero />
                                         <React.Suspense fallback={<LoadingFallback />}>
-                                            <section className="py-20 bg-bg-section border-y border-border">
+                                            <section className="py-20 bg-bg-section border-y border-border" aria-label="Company Statistics">
                                                 <div className="container">
                                                     <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
                                                         {[
-                                                            { label: "Founded", val: "2022", start: 2002 },
+                                                            { label: "Founded", val: "2022", start: 2020 },
                                                             { label: "Awards Won", val: "15+" },
                                                             { label: "Lines of Code", val: "10M+" },
                                                             { label: "Countries Served", val: "12" }
                                                         ].map((item, idx) => (
                                                             <div key={idx} className="flex flex-col items-center">
                                                                 <div className="text-4xl md:text-5xl font-bold font-outfit text-heading mb-2">
-                                                                    <Counter value={item.val} startValue={item.start} />
+                                                                    <Counter value={item.val} startValue={item.start || 0} />
                                                                 </div>
                                                                 <div className="text-[10px] text-text-muted uppercase tracking-widest font-bold">{item.label}</div>
                                                             </div>
