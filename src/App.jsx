@@ -44,13 +44,13 @@ const Navbar = () => {
             <nav className={`fixed top-0 left-0 w-full z-50 transition-[padding,background-color,border-color] duration-300 ${isScrolled ? 'glass py-2 shadow-lg' : 'bg-transparent py-4'}`}>
                 <div className="container flex justify-between items-center">
                     <div className="flex items-center gap-3">
-                        <div className="w-[46px] h-[46px] rounded-full overflow-hidden border border-primary/20 bg-white/5 flex items-center justify-center p-1 relative shadow-sm">
+                        <div className="w-[43px] h-[63px] rounded-lg overflow-hidden border border-primary/20 bg-white/5 flex items-center justify-center p-0.5 relative shadow-sm">
                             <img
                                 src="/images/logo (1).avif"
                                 alt="Baridex Logo"
                                 className="w-full h-full object-contain"
-                                width="46"
-                                height="46"
+                                width="43"
+                                height="63"
                                 loading="eager"
                                 fetchpriority="high"
                                 decoding="async"
