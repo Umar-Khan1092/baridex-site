@@ -18,35 +18,14 @@ const About = () => {
                             <img
                                 src="/images/group_work.avif"
                                 alt="Baridex team members collaborating on a project together"
-                                className="rounded-2xl w-full h-[500px] object-cover"
+                                className="rounded-2xl w-full h-[450px] object-cover"
                                 width="500"
-                                height="500"
+                                height="450"
                                 loading="lazy"
                                 decoding="async"
                                 sizes="(max-width: 768px) 100vw, 50vw"
                             />
-                            <div className="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent"></div>
                         </div>
-
-                        {/* Decorative elements */}
-                        <div className="absolute -top-6 -right-6 w-32 h-32 bg-primary/20 rounded-full blur-3xl"></div>
-                        <div className="absolute -bottom-6 -left-6 w-32 h-32 bg-secondary/20 rounded-full blur-3xl"></div>
-
-                        <motion.div
-                            animate={{ y: [0, 15, 0] }}
-                            transition={{ duration: 4, repeat: Infinity }}
-                            className="absolute bottom-10 right-10 glass p-6 rounded-2xl shadow-2xl border border-primary/20 z-20"
-                        >
-                            <div className="flex items-center gap-4">
-                                <div className="w-12 h-12 bg-primary rounded-xl flex items-center justify-center">
-                                    <TrendingUp className="text-white" size={24} />
-                                </div>
-                                <div>
-                                    <div className="text-2xl font-bold">95%</div>
-                                    <div className="text-xs text-text-muted">Efficiency Gain</div>
-                                </div>
-                            </div>
-                        </motion.div>
                     </motion.div>
 
                     <motion.div

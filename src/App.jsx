@@ -179,46 +179,15 @@ const Hero = () => {
                         <div className="rounded-2xl overflow-hidden shadow-xl">
                             <div className="h-[450px] w-full bg-slate-900 relative group overflow-hidden">
                                 <img
-                                    src="https://images.unsplash.com/photo-1639322537231-2f206e06af84?format=avif&fit=crop&q=40&w=600"
+                                    src="/images/hero%20section.avif"
                                     alt="Futuristic AI Neural Network showing data connections"
-                                    className="w-full h-full object-cover opacity-80"
+                                    className="w-full h-full object-cover"
                                     width="500"
                                     height="450"
                                     loading="eager"
                                     fetchpriority="high"
                                     decoding="async"
                                 />
-
-                                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/60 to-transparent"></div>
-
-                                <div className="absolute inset-0 flex items-center justify-center">
-                                    <div className="w-48 h-48 border border-white/10 rounded-full flex items-center justify-center animate-pulse">
-                                        <div className="w-32 h-32 bg-primary/20 backdrop-blur-md rounded-full flex items-center justify-center">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-white opacity-80"><path d="M3 5V19C3 20.1 5.24 21 8 21C10.76 21 13 20.1 13 19V5" /><path d="M3 5C3 6.1 5.24 7 8 7C10.76 7 13 6.1 13 5C13 3.9 10.76 3 8 3C5.24 3 3 3.9 3 5Z" /><path d="M13 12C13 13.1 15.24 14 18 14C20.76 14 23 13.1 23 12V5" /><path d="M13 19C13 20.1 15.24 21 18 21C20.76 21 23 20.1 23 19V12" /><path d="M23 5C23 6.1 20.76 7 18 7C15.24 7 13 6.1 13 5C13 3.9 15.24 3 18 3C20.76 3 23 3.9 23 5Z" /></svg>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        {/* Floating elements - expanded with raw SVG for performance */}
-                        <div className="absolute -top-6 -right-6 glass p-3 rounded-xl shadow-lg border-primary/20">
-                            <div className="flex items-center gap-2">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-green-500"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17" /><polyline points="16 7 22 7 22 13" /></svg>
-                                <div>
-                                    <div className="text-[10px] text-text-muted">ROI</div>
-                                    <div className="text-sm font-bold">+245%</div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div className="absolute -bottom-4 -left-6 glass p-3 rounded-xl shadow-lg border-secondary/20">
-                            <div className="flex items-center gap-2">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-blue-500"><polyline points="16 18 22 12 16 6" /><polyline points="8 6 2 12 8 18" /></svg>
-                                <div>
-                                    <div className="text-[10px] text-text-muted">Status</div>
-                                    <div className="text-sm font-bold">Live</div>
-                                </div>
                             </div>
                         </div>
                     </div>
