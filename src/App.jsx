@@ -179,7 +179,7 @@ const Hero = () => {
                         <div className="rounded-2xl overflow-hidden shadow-xl">
                             <div className="h-[450px] w-full bg-slate-900 relative group overflow-hidden">
                                 <img
-                                    src="https://images.unsplash.com/photo-1639322537231-2f206e06af84?format=webp&fit=crop&q=60&w=600"
+                                    src="https://images.unsplash.com/photo-1639322537231-2f206e06af84?format=avif&fit=crop&q=40&w=600"
                                     alt="Futuristic AI Neural Network showing data connections"
                                     className="w-full h-full object-cover opacity-80"
                                     width="500"
