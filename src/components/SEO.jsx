@@ -2,7 +2,7 @@ import React from 'react';
 import { Helmet } from 'react-helmet-async';
 
 const SEO = ({ title, description, path, type = 'website' }) => {
-    const siteUrl = 'https://baridex-site.vercel.app';
+    const siteUrl = 'https://baridexsolution.shop';
     const fullUrl = `${siteUrl}${path}`;
     const defaultTitle = 'Baridex Solution Ltd | Pioneering Digital Frontiers';
     const defaultDescription = 'Expert software solutions in Data Science, Web Development, SEO, and Digital Marketing. Baridex Solution Ltd - Transforming data into excellence.';
