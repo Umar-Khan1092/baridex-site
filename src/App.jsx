@@ -10,7 +10,7 @@ const ServiceModal = React.lazy(() => import('./components/ServiceModal'));
 const Portfolio = React.lazy(() => import('./components/Portfolio'));
 const Team = React.lazy(() => import('./components/Team'));
 const Reviews = React.lazy(() => import('./components/Reviews'));
-//const Pricing = React.lazy(() => import('./components/Pricing'));
+const Pricing = React.lazy(() => import('./components/Pricing'));
 const About = React.lazy(() => import('./components/About'));
 const DetailedScience = React.lazy(() => import('./components/DetailedScience'));
 const WorkflowAutomation = React.lazy(() => import('./components/WorkflowAutomation'));
