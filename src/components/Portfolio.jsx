@@ -141,11 +141,11 @@ const Portfolio = () => {
 
     const projects = [
         {
-            title: "IPTV Web Solutions",
+            title: " Web Solutions",
             icon: <MonitorPlay className="text-white" size={28} />,
             points: ["High-Speed Streaming", "Custom Player UI", "VOD Management", "Multi-Portal Support"],
             category: "Web Development",
-            problem: "Existing IPTV platforms suffered from massive buffering, poor user navigation, and lack of customization for multiple portal providers.",
+            problem: "Existing  platforms suffered from massive buffering, poor user navigation, and lack of customization for multiple portal providers.",
             solution: "We built a specialized Node.js streaming engine with an optimized React frontend, reducing latency by 40% and allowing instant portal switching.",
             techStack: ["React.js", "Node.js", "Redis", "WebSockets", "DPlayer"]
         },
@@ -213,11 +213,11 @@ const Portfolio = () => {
             techStack: ["Flutter", "Dart", "Firebase", "ESP32", "MQTT"]
         },
         {
-            title: "IPTV SEO Dominance",
+            title: "SEO Dominance",
             icon: <Search className="text-white" size={28} />,
             points: ["10+ Sites Strategy", "Keyword Authority", "Backlink Network", "Organic Growth"],
             category: "Digital Marketing",
-            problem: "IPTV services operate in a highly competitive niche where organic visibility is hard to achieve without penalty.",
+            problem: "services operate in a highly competitive niche where organic visibility is hard to achieve without penalty.",
             solution: "Executed a multi-site SEO strategy focusing on long-tail technical keywords and a secure, niche-specific backlink network.",
             techStack: ["SEMRush", "Ahrefs", "Google Analytics", "Wordpress SEO"]
         },
